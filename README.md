@@ -163,7 +163,7 @@ Use the pre-trained weights provided in `weights/` directory, or train your own:
 
 ```bash
 # Using pre-trained weights
-cp weights/*.txt ./
+cp weights/*.txt ./here/are/weights
 
 # Or train your own (requires Python environment)
 cd training
@@ -172,24 +172,25 @@ python train.py
 
 ### 4. Compile
 
+On On the course evaluation system (V100)
 ```bash
-nvcc inference.cu -o inference_prog \
+nvcc inference_optimized.cu -o inference_optimized_prog \
     -Xcompiler "-O3 -std=c++14" \
     -gencode arch=compute_70,code=sm_70 \
     -rdc=true
 ```
 
-For different GPU architectures:
+For different GPU architectures or local evaluation:
 
 ```bash
-# For RTX 3090 (SM 86)
-nvcc inference.cu -o inference_prog \
-    -Xcompiler "-O3 -std=c++14" \
-    -gencode arch=compute_86,code=sm_86 \
+# For Ada Lovelace (my RTX 4070 Super)
+nvcc inference_optimized.cu -o ./inference_optimized_prog \
+    -Xcompiler "-O3 -std=c++17" \
+    -gencode arch=compute_89,code=sm_89 \
     -rdc=true
 
 # For multiple architectures
-nvcc inference.cu -o inference_prog \
+nvcc inference_optimized.cu -o inference_optimized_prog \
     -Xcompiler "-O3 -std=c++14" \
     -gencode arch=compute_70,code=sm_70 \
     -gencode arch=compute_75,code=sm_75 \
@@ -208,7 +209,7 @@ nvcc inference.cu -o inference_prog \
 ### Example
 
 ```bash
-./inference_prog ./weights
+./inference_optimized_prog ./here/are/weights/
 ```
 
 ### Output Format
@@ -235,7 +236,7 @@ cuda-snn-inference/
 ├── README.md                 # This file
 ├── LICENSE                   # MIT License
 ├── inference.cu              # Main CUDA inference implementation
-├── weights/                  # Pre-trained model weights
+├── here/are/weights/                  # Pre-trained model weights
 │   ├── conv1.weight.txt
 │   ├── conv1.bias.txt
 │   ├── conv2.weight.txt
