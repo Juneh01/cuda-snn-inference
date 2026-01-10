@@ -166,13 +166,12 @@ Use the pre-trained weights provided in `weights/` directory, or train your own:
 cp weights/*.txt ./here/are/weights
 
 # Or train your own (requires Python environment)
-cd training
 python train.py
 ```
 
 ### 4. Compile
 
-On On the course evaluation system (V100)
+On the course evaluation system (V100)
 ```bash
 nvcc inference_optimized.cu -o inference_optimized_prog \
     -Xcompiler "-O3 -std=c++14" \
@@ -356,7 +355,6 @@ pip install spikingjelly
 ### Train Model
 
 ```bash
-cd training
 python train.py
 ```
 
