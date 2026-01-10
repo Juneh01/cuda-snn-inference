@@ -251,11 +251,7 @@ cuda-snn-inference/
 │       └── raw/
 │           ├── t10k-images-idx3-ubyte
 │           └── t10k-labels-idx1-ubyte
-├── training/                 # Training scripts (Python)
-│   ├── train.py
-│   └── requirements.txt
-└── scripts/
-    └── download_data.sh
+└── train.py                 # Training scripts (Python)
 ```
 
 ## ⚡ Optimization Techniques
