@@ -20,7 +20,6 @@ A highly optimized CUDA C++ implementation for Spiking Neural Network (SNN) infe
 - [Project Structure](#-project-structure)
 - [Optimization Techniques](#-optimization-techniques)
 - [Performance](#-performance)
-- [License](#-license)
 
 ## 🎯 Background
 
