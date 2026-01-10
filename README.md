@@ -106,11 +106,11 @@ This project implements an optimized CUDA inference engine for a convolutional S
 │      Output (10)                 │    │  • Pinned Memory                 │
 │                                  │    │  • Async Transfers               │
 ├──────────────────────────────────┤    ├──────────────────────────────────┤
-│  Kernels/Timestep: 12            │    │  Kernels/Timestep: 7             │
+│  Kernels: 12                     │    │  Kernels: 7                      │
 │  Batch Size: 1                   │    │  Batch Size: 512                 │
 │  Memory Access: Naive            │    │  Memory Access: Optimized        │
 │  Compute: FP32 only              │    │  Compute: FP32 + FP16 Tensor     │
-│  Time: ~150ms                    │    │  Time: ~15ms                     │
+│  Timesteps: 8                    │    │  Timesteps: 4                    │
 └──────────────────────────────────┘    └──────────────────────────────────┘
 ```
 
@@ -221,10 +221,10 @@ nvcc inference.cu -o inference_prog \
 Example output:
 
 ```
-0.0155:0.8989
+0.0154:0.8989
 ```
 
-- Inference time: 0.0155 seconds (15.5 ms)
+- Inference time: 0.0154 seconds (15.4 ms)
 - Accuracy: 89.89%
 
 
@@ -313,7 +313,7 @@ asm("ld.global.nc.v4.f32 {%0, %1, %2, %3}, [%4];" ...);
 | Total Images   | 10,000              |
 | Batch Size     | 512                 |
 | Timesteps (T)  | 4                   |
-| Inference Time | ~15.5 ms            |
+| Inference Time | ~15.4 ms            |
 | Throughput     | ~645,000 images/sec |
 | Accuracy       | 89.89%              |
 
