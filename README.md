@@ -1,4 +1,6 @@
 # SpikeCUDA 🚀：cuda-snn-inference
+2025年秋季国科大《GPU架构与编程》
+
 a project from GPU Architecture & Programming course, University of Chinese Academy of Sciences
 
 ## High-Performance CUDA Implementation of Spiking Neural Network Inference
